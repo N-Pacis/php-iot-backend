@@ -1,0 +1,12 @@
+#chartContainer {
+    width: 100% !important;
+    margin: auto;
+}
+
+.chart-holder {
+    padding: 2% !important;
+    margin: 5% auto !important;
+    width: 50% !important;
+    background-color: #187dbc5c;
+    height: 400px;
+}
