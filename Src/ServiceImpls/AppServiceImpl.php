@@ -17,7 +17,7 @@ class AppServiceImpl implements AppService
 
     public function findAll()
     {
-        $statement = " SELECT * FROM iot;";
+        $statement = " SELECT * FROM pacis_sensordata;";
 
         try {
             $statement = $this->db->query($statement);
@@ -30,7 +30,7 @@ class AppServiceImpl implements AppService
 
     public function find(int $id)
     {
-        $statement = "SELECT * FROM iot WHERE id = ?;";
+        $statement = "SELECT * FROM pacis_sensordata WHERE id = ?;";
 
         try {
             $statement = $this->db->prepare($statement);
@@ -44,7 +44,7 @@ class AppServiceImpl implements AppService
 
     public function findByDevice(String $device)
     {
-        $statement = "SELECT * FROM iot WHERE device = :DEVICE;";
+        $statement = "SELECT * FROM pacis_sensordata WHERE device = :DEVICE;";
 
         try {
             $statement = $this->db->prepare($statement);
@@ -66,7 +66,7 @@ class AppServiceImpl implements AppService
         $columns = implode(",",array_keys($data));
         $bind_params = implode(', ', array_map(function($value) { return ':' . $value; }, array_keys($data)));
 
-        $query = " INSERT INTO iot ($columns) VALUES ($bind_params);";
+        $query = " INSERT INTO pacis_sensordata ($columns) VALUES ($bind_params);";
 
         try {
 
@@ -83,7 +83,7 @@ class AppServiceImpl implements AppService
 
     public function delete(int $id)
     {
-        $statement = "DELETE FROM iot WHERE id = :id;";
+        $statement = "DELETE FROM pacis_sensordata WHERE id = :id;";
 
         try {
             $statement = $this->db->prepare($statement);

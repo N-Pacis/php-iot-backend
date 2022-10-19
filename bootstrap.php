@@ -1,21 +1,15 @@
 <?php
 require 'vendor/autoload.php';
-use Dotenv\Dotenv;
 use Src\ServiceImpls\AppServiceImpl;
 
-
-$dotenv = new DotEnv(__DIR__);
-$dotenv->load();
-
-$host = getenv('DB_HOST');
-$port = getenv('DB_PORT');
-$db   = getenv('DB_DATABASE');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASSWORD');
+$host = "localhost";
+$db   = "benax_iot";
+$user = "benax_iot_root";
+$pass = "Td(FAdeZ9xp3";
 
 $dbConnection = new \PDO("mysql:host=$host;dbname=$db", $user, $pass);
 
-$dbConnection->exec('CREATE TABLE IF NOT EXISTS iot (
+$dbConnection->exec('CREATE TABLE IF NOT EXISTS pacis_sensordata (
     id INT  PRIMARY KEY AUTO_INCREMENT,
     device VARCHAR(100) NOT NULL,
     temperature VARCHAR(100) NOT NULL,
