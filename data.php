@@ -1,8 +1,6 @@
 <?php
 require "./bootstrap.php";
 
-use Src\Controller\AppController;
-
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: OPTIONS,POST,GET");
@@ -22,5 +20,5 @@ $dbConnection->exec('CREATE TABLE IF NOT EXISTS iot (
     temperature VARCHAR(100) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );');
-$controller = new AppController($dbConnection, $requestMethod);
-$controller->processRequest();
+
+registerData($dbConnection);
