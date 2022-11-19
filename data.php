@@ -13,12 +13,4 @@ $uri = explode('/', $uri);
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 $dbConnection->exec('USE '.$db.';');
-
-$dbConnection->exec('CREATE TABLE IF NOT EXISTS iot (
-    id INT  PRIMARY KEY AUTO_INCREMENT,
-    device VARCHAR(100) NOT NULL,
-    temperature VARCHAR(100) NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);');
-
 registerData($dbConnection);
